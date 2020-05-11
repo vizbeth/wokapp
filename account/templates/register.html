@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block form %}
+<br><br>
+    <div class="page-wrap">
+        <h1 style="color: rgba(0, 0, 255, 0.589);">Create an account</h1><br><br>
+        <div class="form-group">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit">Register</button> <a href="{% url 'login' %}" style="color: red;">Already have an account?</a>
+            
+        </form>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>todolist</title>{% endblock %}
+
+{% block form %}
+<br><br>
+    <div class="page-wrap">
+        <div class="form-group">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        <form action="{% url 'todo' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Add task?" name="task"><br>
+            <button type="submit">Add task</button>
+        </form>
+    </div>
+    </div>
+{% endblock %}
+
+{% block table %}
+    <div class="page-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Done</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for obj in all_tasks %}
+                {% if obj.done %}
+                    <tr class="completed">
+                        <td><del>{{ obj.task }}</del></td>
+                        <td><a href="{% url 'pending' obj.id %}"><button type="submit" style="background-color: blue;">Mark as Undone</button></a></td>
+                        <td><a href="{% url 'edit' obj.id %}"><button type="submit" style="background-color: grey;">Edit</button></a></td>
+                        <td><a href="{% url 'delete' obj.id %}"><button type="submit" style="background-color: red;">Delete</button></a></td>
+                    </tr>
+                 {% else %}
+                    <tr>
+                        <td>{{ obj.task }}</td>
+                        <td><a href="{% url 'done' obj.id %}"><button type="submit" style="background-color:green;">Mark as Done</button></a></td>
+                        <td><a href="{% url 'edit' obj.id %}"><button type="submit" style="background-color: grey;">Edit</button></a></td>
+                        <td><a href="{% url 'delete' obj.id %}"><button type="submit" style="background-color: red;">Delete</button></a></td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

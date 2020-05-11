@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="{% url 'home' %}"><h1>WokApp</h1></a>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'todo' %}">Todolist</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+                {% if user.is_authenticated %}
+            <div class="user">
+                <a href="#"><button type="submit">Logged in as {{ user.username }}</button></a>
+                <a href="{% url 'logout' %}"><button type="submit">Logout</button></a>
+            </div>
+            {% else %}
+            <div class="user">
+                <a href="{% url 'register' %}"><button type="submit">Register</button></a>
+                <a href="{% url 'login' %}"><button type="submit">Login</button></a>
+            </div>
+            {% endif %}
+        </ul>
+
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    {% block mainSlide %}{% endblock %}
+
+    {% block content %}{% endblock %}
+    {% block form %}{% endblock %}
+
+
+    {% block table %}{% endblock %}
+    
+    
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

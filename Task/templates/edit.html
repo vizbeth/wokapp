@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block form %}
+<br><br>
+    <div class="page-wrap">
+        <div class="form-group">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+            {% if request.user %}
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" placeholder="{{ task_obj.task }}" value="{{ task_obj.task }}" name="task"><br>
+                <button type="submit">Update</button>
+            </form>
+            {% else %}
+                <div class="home-text">
+                    Access denied. Not allowed!
+                </div>
+                {% endif %}
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Home</title>{% endblock %}
+</head>
+<body>
+
+    {% block mainSlide %}
+    <div class="slider-wrap">
+        <div class="arrows" id="arrow1"></div>
+            <div class="slider">
+                <div class="slides" id="slide1">
+                    <div class="slide-content">
+                        <span>Don't miss another meeting</span>
+                    </div>
+                </div>
+                <div class="slides" id="slide2">
+                    <div class="slide-content">
+                        <span>Stay up to schedule</span>
+                    </div>
+                </div>
+                <div class="slides" id="slide3">
+                    <div class="slide-content">
+                        <span>On top of your day always</span>
+                    </div>
+                </div>
+            </div>
+        <div class="arrows" id="arrow2"></div>
+    </div>
+
+    {% endblock %}
+
+    {% block content %}
+        <div class="home-text">
+            <h2>Keep up with schedule all the time with <strong>WokApp</strong></h2><br>
+            <h3>your everyday work companion</h3>
+                <a href="{% url 'todo' %}"><button style="background-color: aqua;margin-top: 25px;">Get started</button></a>
+        </div>
+    {% endblock %}
+  
+</body>
+</html>

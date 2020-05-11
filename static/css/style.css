@@ -1,0 +1,278 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-style: Arial Helvetica sans-serif;
+    font-size: 18px;
+}
+
+nav{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 8vh;
+    justify-content: space-around;
+    align-items: center;
+    background-color: blue;
+    font-size: 18px;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+.nav-links button{
+    color: white;
+    background-color: transparent;
+    border: solid 1px transparent;
+    font-size: 16px;
+   
+}
+
+.logo{
+    color: white;
+    font-weight: bold;
+    font-size: 18 px;
+}
+
+.nav-links{
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    display: none;
+}
+
+@media screen and (max-width:768px){
+
+    body{
+        overflow-x: hidden;
+    }
+
+    .burger div{
+        display: block;
+        transition: 0.5s all ease;
+    }
+
+    .nav-links{
+        position: absolute;
+        top: 8vh;
+        height: 80vh;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        right: 0;
+        transform: translateX(100%);
+        background-color: blue;
+        z-index: 2;
+        transition: 0.5s all ease;
+
+    }
+
+    .nav-links li{
+        opacity: 0;
+    }
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+
+.change .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.change .line2{
+    opacity: 0;
+}
+.change .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
+}
+
+@keyframes navLinksFade{
+    from{
+        opacity: 0;
+        transform: translate(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+.slider-wrap{
+    width: 100%;
+    
+}
+
+.slider{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.slides{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-content{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+}
+
+#slide1{
+    background-image: url(../images/doctor-1807475_1280.png);
+}
+#slide2{
+    background-image: url(../images/online-3307293_1920.jpg);
+}
+#slide3{
+    background-image: url(../images/woman-3187087_1920.jpg);
+}
+
+.arrows{
+    cursor: pointer;
+    position: absolute;
+    top: 25%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    margin-top: 50px;
+}
+
+#arrow1{
+    left: 0;
+    border-width: 20px 20px 20px 0px;
+    border-color: transparent #fff transparent transparent;
+    margin-left: 20px;
+}
+
+#arrow2{
+    right: 0;
+    border-width: 20px 0 20px 20px;
+    border-color: transparent transparent transparent #fff;
+    margin-right: 20px;
+}
+
+@media screen and (max-width:1024px){
+    .arrows{
+        margin-top: 65px;
+    }
+    .slide-content{
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width:768px){
+    .arrows{
+        margin-top: 40px !important;
+    }
+}
+
+.home-text{
+    margin: 50px;
+    text-align: center;
+    font-size: large;
+    color: rgb(27, 94, 219);
+}
+
+.page-wrap{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.form-group input{
+    width: 80%;
+    height: 2em;
+    border: solid 1px rgb(165, 160, 160);
+    border-radius: 5px;
+}
+
+.form-group button{
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    border-color: transparent;
+    background-color: rgb(61, 136, 187);
+    color: #fff;
+    margin-top: 5px;
+}
+
+table{
+    width: 100%;
+    margin-top: 50px;
+    text-align: left;
+    border: 1px solid rgb(182, 182, 182);
+    border-radius: 5px;
+}
+
+td{
+    border-top: 1px solid rgb(182, 182, 182);
+    padding-top: 6px;
+}
+
+@media screen and (max-width:768px){
+    .page-wrap{
+        width: 100%;
+        margin: 0 2px 0 2px;
+    }
+
+    table{
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 2em;
+        border: 1px solid transparent;
+        padding: 5px;
+    }
+}
+
+.completed{
+    background-color: aqua;
+}
+
+button{
+    height: 2em;
+    padding: 2px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    color: white;
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10%;
+    align-items: center;
+    justify-content: left;
+    letter-spacing: 1px;
+    line-height: 2rem;
+}
+
+
+
