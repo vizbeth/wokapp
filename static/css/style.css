@@ -10,10 +10,12 @@ html,body
     font-style: Arial Helvetica sans-serif;
     font-size: 18px;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     margin: 0px;
     padding: 0px;
     overflow-x: hidden; 
+    overflow-y: hidden;
+    padding-bottom: 10px; 
 }
 
 
@@ -191,7 +193,7 @@ a{
 
 @media screen and (max-width:768px){
     .arrows{
-        margin-top: 25px !important;
+        margin-top: 27px !important;
     }
     #arrow1{        
         margin-left: 10px;
@@ -204,7 +206,7 @@ a{
 .home-text{
     margin: 50px;
     text-align: center;
-    font-size: large;
+    font-size: 18px;
     color: rgb(27, 94, 219);
 }
 
@@ -244,6 +246,11 @@ td{
 }
 
 @media screen and (max-width:768px){
+
+    .home-text{
+        margin: 30px;
+        font-size: 18px;
+    }
     .page-wrap{
         width: 100%;
         margin: 0 2px 0 2px;
